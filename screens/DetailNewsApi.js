@@ -1,18 +1,31 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Image} from 'react-native'
 
-export default class DetailNewsApi extends React.Component {
+export default class Home extends React.Component {
 
-  static navigationOptions = {
-    title: 'News App - Detail'
-  }
+    static navigationOptions = {
+        title: 'Baca Berita',
+        headerStyle: {
+            backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    }
 
   render() {
     return (
       <View>
-        <Text>
-          Ini DetailNewsApi
-        </Text>
+            <View>
+                <Text>{this.props.navigation.getParam('title')}</Text>
+            </View>
+            <View>
+                <Image source={{uri: this.props.navigation.getParam('img')}} style={{width:100, height:100}} />
+            </View>
+            <View>
+                <Text>{this.props.navigation.getParam('content')}</Text>
+            </View>
       </View>
     )
   }
